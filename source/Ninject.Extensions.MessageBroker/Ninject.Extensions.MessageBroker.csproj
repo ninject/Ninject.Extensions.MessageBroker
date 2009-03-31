@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67C9C1A5-497B-4C69-9D05-A201EC646E35}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ninject.Extensions.MessageBroker</RootNamespace>
+    <AssemblyName>Ninject.Extensions.MessageBroker</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Ninject.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Ninject.Extensions.MessageBroker.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Ninject.Extensions.MessageBroker.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\contrib\Ninject\Ninject.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\Strategies\EventBindingStrategy.cs" />
+    <Compile Include="DeliveryThread.cs" />
+    <Compile Include="Ensure.cs" />
+    <Compile Include="ExtensionsForICustomAttributeProvider.cs" />
+    <Compile Include="IMessageBroker.cs" />
+    <Compile Include="MessageBrokerModule.cs" />
+    <Compile Include="Model\Channels\IMessageChannel.cs" />
+    <Compile Include="Model\Channels\IMessageChannelFactory.cs" />
+    <Compile Include="Model\Channels\StandardMessageChannel.cs" />
+    <Compile Include="Model\Channels\StandardMessageChannelFactory.cs" />
+    <Compile Include="Model\Publications\IMessagePublication.cs" />
+    <Compile Include="Model\Publications\IMessagePublicationFactory.cs" />
+    <Compile Include="Model\Publications\StandardMessagePublication.cs" />
+    <Compile Include="Model\Publications\StandardMessagePublicationFactory.cs" />
+    <Compile Include="Model\Subscriptions\IMessageSubscription.cs" />
+    <Compile Include="Model\Subscriptions\IMessageSubscriptionFactory.cs" />
+    <Compile Include="Model\Subscriptions\StandardMessageSubscription.cs" />
+    <Compile Include="Model\Subscriptions\StandardMessageSubscriptionFactory.cs" />
+    <Compile Include="Planning\Directives\PublicationDirective.cs" />
+    <Compile Include="Planning\Directives\SubscriptionDirective.cs" />
+    <Compile Include="Planning\Strategies\EventReflectionStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PublishAttribute.cs" />
+    <Compile Include="StandardMessageBroker.cs" />
+    <Compile Include="SubscribeAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
