@@ -180,7 +180,7 @@ namespace Ninject.Extensions.MessageBroker.Tests
             }
         }
 
-        [Fact]
+        [Fact( Skip = "IKernel.Release is no longer available." )]
         public void DisposingObjectRemovesSubscriptionsRequestedByIt()
         {
             using ( var kernel = new StandardKernel() )

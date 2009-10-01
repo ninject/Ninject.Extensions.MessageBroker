@@ -38,7 +38,7 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
     /// </summary>
     public class EventBindingStrategy : ActivationStrategy
     {
-        public override void Activate( IContext context )
+        public override void Activate( IContext context, InstanceReference reference )
         {
             var messageBroker = context.Kernel.Components.Get<IMessageBroker>();
 
@@ -51,7 +51,7 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
             foreach ( PublicationDirective publication in publications )
             {
                 IMessageChannel channel = messageBroker.GetChannel( publication.Channel );
-                channel.AddPublication( context.Instance, publication.Event );
+                channel.AddPublication( reference.Instance, publication.Event );
             }
 
             List<SubscriptionDirective> subscriptions = context.Plan.GetAll<SubscriptionDirective>().ToList();
@@ -63,11 +63,11 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
             foreach ( SubscriptionDirective subscription in subscriptions )
             {
                 IMessageChannel channel = messageBroker.GetChannel( subscription.Channel );
-                channel.AddSubscription( context.Instance, subscription.Injector, subscription.Thread );
+                channel.AddSubscription( reference.Instance, subscription.Injector, subscription.Thread );
             }
         }
 
-        public override void Deactivate( IContext context )
+        public override void Deactivate( IContext context, InstanceReference reference )
         {
             var messageBroker = context.Kernel.Components.Get<IMessageBroker>();
 
@@ -76,7 +76,7 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
             foreach ( PublicationDirective publication in publications )
             {
                 IMessageChannel channel = messageBroker.GetChannel( publication.Channel );
-                channel.RemovePublication( context.Instance, publication.Event );
+                channel.RemovePublication( reference.Instance, publication.Event );
             }
 
             IEnumerable<SubscriptionDirective> subscriptions = context.Plan.GetAll<SubscriptionDirective>();
@@ -84,7 +84,7 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
             foreach ( SubscriptionDirective subscription in subscriptions )
             {
                 IMessageChannel channel = messageBroker.GetChannel( subscription.Channel );
-                channel.RemoveSubscription( context.Instance, subscription.Injector );
+                channel.RemoveSubscription( reference.Instance, subscription.Injector );
             }
         }
     }
