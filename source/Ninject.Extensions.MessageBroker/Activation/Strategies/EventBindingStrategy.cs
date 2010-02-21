@@ -38,6 +38,11 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
     /// </summary>
     public class EventBindingStrategy : ActivationStrategy
     {
+        /// <summary>
+        /// Activates the specified context.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="reference">The reference.</param>
         public override void Activate( IContext context, InstanceReference reference )
         {
             var messageBroker = context.Kernel.Components.Get<IMessageBroker>();
@@ -67,6 +72,11 @@ namespace Ninject.Extensions.MessageBroker.Activation.Strategies
             }
         }
 
+        /// <summary>
+        /// Deactivates the specified context.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="reference">The reference.</param>
         public override void Deactivate( IContext context, InstanceReference reference )
         {
             var messageBroker = context.Kernel.Components.Get<IMessageBroker>();

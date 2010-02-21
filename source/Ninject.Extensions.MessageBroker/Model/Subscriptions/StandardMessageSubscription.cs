@@ -39,11 +39,11 @@ namespace Ninject.Extensions.MessageBroker.Model.Subscriptions
         #region Fields
 
         private readonly DeliveryThread _deliveryThread;
-#if !SILVERLIGHT
-        private readonly SynchronizationContext _syncContext;
         private IMessageChannel _channel;
         private MethodInjector _injector;
         private object _subscriber;
+#if !SILVERLIGHT && !NETCF
+        private readonly SynchronizationContext _syncContext;
 #endif
 
         #endregion
@@ -113,7 +113,7 @@ namespace Ninject.Extensions.MessageBroker.Model.Subscriptions
             _injector = injector;
             _deliveryThread = deliveryThread;
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !NETCF
             if ( deliveryThread == DeliveryThread.UserInterface )
             {
                 _syncContext = SynchronizationContext.Current;
@@ -140,7 +140,7 @@ namespace Ninject.Extensions.MessageBroker.Model.Subscriptions
                     DeliverViaBackgroundThread( sender, args );
                     break;
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !NETCF
                 case DeliveryThread.UserInterface:
                     DeliverViaSynchronizationContext( sender, args );
                     break;
@@ -171,7 +171,7 @@ namespace Ninject.Extensions.MessageBroker.Model.Subscriptions
             }
         }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !NETCF
         private void DeliverViaSynchronizationContext( object sender, object args )
         {
             if ( _syncContext != null )

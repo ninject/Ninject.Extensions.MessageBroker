@@ -41,6 +41,11 @@ namespace Ninject.Extensions.MessageBroker.Planning.Strategies
     /// </summary>
     public class EventReflectionStrategy : NinjectComponent, IPlanningStrategy
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EventReflectionStrategy"/> class.
+        /// </summary>
+        /// <param name="selector">The selector.</param>
+        /// <param name="injectorFactory">The injector factory.</param>
         public EventReflectionStrategy( ISelector selector, IInjectorFactory injectorFactory )
         {
             Ensure.ArgumentNotNull( selector, "selector" );

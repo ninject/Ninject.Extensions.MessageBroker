@@ -35,6 +35,10 @@ namespace Ninject.Extensions.MessageBroker.Model.Channels
     {
         private readonly IKernel _kernel;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StandardMessageChannelFactory"/> class.
+        /// </summary>
+        /// <param name="kernel">The kernel.</param>
         public StandardMessageChannelFactory( IKernel kernel )
         {
             _kernel = kernel;
@@ -56,6 +60,10 @@ namespace Ninject.Extensions.MessageBroker.Model.Channels
 
         #region Implementation of IHaveKernel
 
+        /// <summary>
+        /// Gets the kernel.
+        /// </summary>
+        /// <value>The kernel.</value>
         public IKernel Kernel
         {
             get { return _kernel; }

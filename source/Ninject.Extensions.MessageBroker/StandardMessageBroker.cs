@@ -40,6 +40,10 @@ namespace Ninject.Extensions.MessageBroker
     {
         private readonly IKernel _kernel;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StandardMessageBroker"/> class.
+        /// </summary>
+        /// <param name="kernel">The kernel.</param>
         public StandardMessageBroker( IKernel kernel )
         {
             _kernel = kernel;
@@ -150,6 +154,10 @@ namespace Ninject.Extensions.MessageBroker
 
         #region Implementation of IHaveKernel
 
+        /// <summary>
+        /// Gets the kernel.
+        /// </summary>
+        /// <value>The kernel.</value>
         public IKernel Kernel
         {
             get { return _kernel; }
