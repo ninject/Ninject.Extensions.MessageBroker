@@ -12,8 +12,6 @@
 
 #region Using Directives
 
-using Ninject.Activation.Caching;
-using Ninject.Extensions.MessageBroker.Model.Channels;
 using Xunit;
 
 #endregion
@@ -169,28 +167,6 @@ namespace Ninject.Extensions.MessageBroker.Tests
 
                 pub.SendMessage( "Hello, world!" );
                 Assert.Null( sub.LastMessage );
-            }
-        }
-
-        [Fact( Skip = "IKernel.Release is no longer available." )]
-        public void DisposingObjectRemovesSubscriptionsRequestedByIt()
-        {
-            using ( var kernel = new StandardKernel() )
-            {
-                var pub = kernel.Get<PublisherMock>();
-                Assert.NotNull( pub );
-
-                var sub = kernel.Get<SubscriberMock>();
-                Assert.NotNull( sub );
-
-                var messageBroker = kernel.Components.Get<IMessageBroker>();
-                IMessageChannel channel = messageBroker.GetChannel( "message://PublisherMock/MessageReceived" );
-                Assert.Equal( channel.Subscriptions.Count, 1 );
-
-                // TODO: This no longer works.
-                //kernel.Components.Get<ICache>().Release( sub );
-
-                Assert.Empty( channel.Subscriptions );
             }
         }
     }

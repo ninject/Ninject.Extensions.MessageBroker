@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // 
 // Author: Nate Kohari <nate@enkari.com>
