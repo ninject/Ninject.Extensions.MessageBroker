@@ -30,6 +30,7 @@
 				<include name="mscorlib.dll"/>
 				<include name="System.dll"/>
 				<include name="System.Core.dll"/>
+				<include name="System.Web.dll"/>
 				<include name="${path.lib}\Ninject\${nant.settings.currentframework}\release\Ninject.dll"/>
 			</references>
 		</csc>
