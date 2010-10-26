@@ -1,0 +1,20 @@
+#region Using Directives
+
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+#endregion
+
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+
+[assembly : AssemblyTitle( "MessageBroker" )]
+[assembly : AssemblyDescription( "" )]
+[assembly : AssemblyConfiguration( "" )]
+[assembly : AssemblyTrademark( "" )]
+[assembly : AssemblyCulture( "" )]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+
+[assembly : Guid( "3c4be3cc-64e0-43a6-ab57-4fe8675962be" )]
