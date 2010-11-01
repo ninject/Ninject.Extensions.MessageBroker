@@ -6,7 +6,7 @@
 // See the file LICENSE.txt for details.
 // 
 
-namespace Ninject.Extensions.MessageBroker.Tests
+namespace Ninject.Extensions.MessageBroker
 {
     using System;
 
