@@ -106,7 +106,7 @@ namespace Ninject.Extensions.MessageBroker.Model.Channels
         /// <summary>
         /// Raises the <see cref="ReceivedMessage"/> event.
         /// </summary>
-        /// <param name="args">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">The System.EventArgs instance containing the event data.</param>
         protected virtual void OnReceivedMessage( EventArgs args )
         {
             ReceivedMessage( this, args );
@@ -115,7 +115,7 @@ namespace Ninject.Extensions.MessageBroker.Model.Channels
         /// <summary>
         /// Raises the <see cref="EnabledChanged"/> event.
         /// </summary>
-        /// <param name="args">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">The System.EventArgs instance containing the event data.</param>
         protected virtual void OnEnabledChanged( EventArgs args )
         {
             EnabledChanged( this, args );
