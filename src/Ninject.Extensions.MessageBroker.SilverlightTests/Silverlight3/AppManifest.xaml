@@ -1,0 +1,8 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="Ninject.Extensions.MessageBroker.SilverlightTests" EntryPointType="Ninject.Extensions.MessageBroker.App" RuntimeVersion="4.0.50401.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="Ninject.Extensions.MessageBroker.SilverlightTests" Source="Ninject.Extensions.MessageBroker.SilverlightTests.dll" />
+    <AssemblyPart x:Name="Ninject" Source="Ninject.dll" />
+    <AssemblyPart x:Name="Ninject.Extensions.MessageBroker" Source="Ninject.Extensions.MessageBroker.dll" />
+    <AssemblyPart x:Name="UnitDrivenLight" Source="UnitDrivenLight.dll" />
+  </Deployment.Parts>
+</Deployment>
