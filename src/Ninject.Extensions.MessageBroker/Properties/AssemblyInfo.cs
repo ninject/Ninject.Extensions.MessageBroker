@@ -7,7 +7,7 @@ using System.Security;
 // associated with an assembly.
 
 [assembly : AssemblyTitle( "MessageBroker" )]
-[assembly : AssemblyDescription( "" )]
+[assembly : AssemblyDescriptionAttribute("Message broker extension for Ninject")]
 [assembly : AssemblyConfiguration( "" )]
 [assembly : AssemblyTrademark( "" )]
 [assembly : AssemblyCulture( "" )]
